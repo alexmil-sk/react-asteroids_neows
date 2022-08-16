@@ -1,0 +1,28 @@
+.TheHeader {
+	background-image: url("https://apod.nasa.gov/apod/image/2208/MagicPerseid001_1024.jpg");
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 100% 100%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	min-height: 108px;
+	padding: 16px 33px;
+	color: #fff;
+}
+.head {
+	display: flex;
+	flex-direction: column;
+	flex: 0 1 70%;
+}
+.title {
+	font-family: "Rubik Marker Hatch", serif;
+	font-size: 28px;
+	line-height: 32px;
+	margin-bottom: 8px;
+}
+.text {
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 16px;
+}

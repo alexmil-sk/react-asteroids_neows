@@ -1,0 +1,100 @@
+.AsteroidInfoPage {
+	height: auto;
+	padding: 20px 0;
+}
+
+.AsteroidInfoPage button {
+	margin-left: 30px;
+	border-radius: 10px;
+}
+
+.AsteroidInfoPage button a{
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: 25px;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
+	color: #fff;
+	padding: 0 10px;
+	border-radius: 10px;
+	border: 1px solid #000;
+	background: #666666;
+	
+}
+
+.AsteroidInfoPage button a:hover {
+	background: #cccccc;
+	color: #666666;
+}
+
+.AsteroidInfoPage button a:active {
+	background: #666666;
+	color: #fff;
+}
+
+.AsteroidInfoPage button a div {
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+.destroyBtn {
+	position: absolute;
+	top: 15px;
+	right: 115px;
+	background: none;
+	cursor: pointer;
+}
+
+.destroyBtn img{
+	width: 85px;
+	border-radius: 50%;
+	transition: all ease-in-out 300ms;
+}
+.destroyBtn img:hover{
+	box-shadow: 0 0 20px 5px darkred;
+	border-radius: 50%;
+}
+.destroyBtn img:active{
+	box-shadow: 0 0 20px 5px darkgreen;
+	border-radius: 50%;
+}
+
+.destroyBtn p{
+	font-weight: 900;
+	color: darkred;
+}
+
+.okBtn {
+	position: absolute;
+	top: 15px;
+	right: 115px;
+	background: none;
+	cursor: pointer;
+}
+
+.okBtn img{
+	width: 85px;
+	border-radius: 50%;
+	transition: all ease-in-out 300ms;
+}
+
+
+.okBtn img:hover {
+	box-shadow: 0 0 20px 5px darkgreen;
+	border-radius: 50%;
+}
+
+.okBtn img:active {
+	box-shadow: 0 0 20px 5px darkred;
+	border-radius: 50%;
+}
+.okBtn p{
+	font-weight: 900;
+	color: darkgreen;
+}
+
+.AsteroidInfo {
+	position: relative;
+}

@@ -1,0 +1,11 @@
+.AsteroidsList {
+	min-height: 100%;
+	max-width: 1000px;
+	
+}
+.AsteroidsListContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+}

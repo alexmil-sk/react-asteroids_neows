@@ -1,0 +1,73 @@
+.HomePage {
+	width: 100%;
+	min-height: 668px;
+	padding: 24px 30px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.HomePageContainer {
+	min-height: calc(668px - 24px);
+}
+
+.head {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+	
+}
+
+.title {
+}
+
+.line {
+	margin: 8px 0;
+	border-bottom: 1px solid #D7D7D7;
+}
+
+.info {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.distance {
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+}
+
+.labelActive {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.label {
+	cursor: pointer;
+}
+
+.dangerous {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 8px;
+}
+
+.dangerous span {
+	margin-left: 5px;
+}
+
+.dangerous input {
+
+}
+
+.asteroidsList {
+	min-height: 400px;
+	margin-bottom: 131px;
+}
+
+.bottom {
+
+}

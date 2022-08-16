@@ -1,0 +1,60 @@
+.OrdersPage {
+	min-height: 400px;
+	max-width: 600px;
+	text-align: center;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+.OrdersPageTitleSafe {
+	color: lightgreen;
+	transition: all linear 2s;
+}
+
+.OrdersPageTitleNotSafe {
+	color: #fdacbb;
+}
+
+
+.ArrayOrdersList {
+	width: 100%;
+	min-height: 501px;
+	margin: 20px 0;
+	padding: 20px;
+	border-radius: 15px;
+	background: #fcc6ce url('_') no-repeat;
+	box-shadow: 0 0 20px 5px red;
+}
+
+.ArrayOrdersItem {
+	display: grid;
+	grid-template: repeat(3, auto) / repeat(auto-fit, 3, minmax(50px, 200px));
+	justify-items: start;
+	width: auto;
+	
+	border: 1px solid red;
+	padding: 15px;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.ArrayOrdersList :nth-child(7) {
+	grid-column: 3 / 3;
+	grid-row: 1 / 4;
+}
+
+.ArrayOrdersList button {
+	width: 100%;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.EarthInSafe {
+	width: 100%;
+	height: 501px;
+	margin: 20px 0;
+	border-radius: 15px;
+	background: url('src/assets/posters/earth-in-safe.png') no-repeat;
+	box-shadow: 0 0 20px 5px green;
+	transition: all linear 2s;
+}

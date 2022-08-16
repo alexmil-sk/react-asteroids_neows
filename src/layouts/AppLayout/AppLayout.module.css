@@ -1,0 +1,20 @@
+
+.AppLayout {
+	background-image: url("https://apod.nasa.gov/apod/image/2208/MagicPerseid001_1024.jpg");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: 100% 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 100vw;
+	min-height: 100vh;
+	padding: 80px 0;
+}
+.AppLayoutContainer {
+	max-width: 1000px;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0 0;
+	background-image: url("src/assets/posters/solar-system.png");
+	background-repeat: no-repeat;
+	border: 1px solid #fff;
+}

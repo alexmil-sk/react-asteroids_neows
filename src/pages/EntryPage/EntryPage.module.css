@@ -1,0 +1,47 @@
+.EntryPage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 660px;
+	background-image: url('../../assets/posters/armageddon.png');
+	box-shadow: 0 0 35px 15px red;
+}
+.armageddon {
+	font-family: "Rubik Marker Hatch", serif;
+	font-size: 7rem;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 2px red, 0 0 1em red , 0 0 0.2em #ffffff;
+	color: #ffffff;
+	z-index: 50;
+	animation-name: armageddon;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-play-state: running;
+	animation-fill-mode: none;
+}
+
+@keyframes armageddon{
+	0%{
+		transform: rotateY(0deg) rotateX(0deg) scale(1);
+		color: #ff000c;
+	}
+	25% {
+		color: #fa7f7f;
+		transform: rotateY(360deg) rotateX(20deg) scale(2);
+	}
+	50% {
+		color: #ff000c;
+		transform: rotateY(0deg) rotateX(0deg) scale(1.5);
+	}
+	85% {
+		color: #fa7f7f;
+		
+	}
+	100%{
+		color: #ff000c;
+	}
+	
+}

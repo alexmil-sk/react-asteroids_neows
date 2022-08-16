@@ -1,0 +1,121 @@
+.AsteroidItem {
+
+}
+
+
+.AsteroidItemBlock {
+	position: relative;
+	display: flex;
+	min-width: 322px; /*288px*/
+	height: 168px; /*168px*/
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	border: 1px solid #666666;
+	border-radius: 20px;
+	padding: 5px;
+	cursor:pointer;
+	background-color: rgba(255, 255, 255, 0.7);
+	color: #000;
+	
+	transition: box-shadow linear 400ms;
+}
+.AsteroidItemBlock img {
+	border: 1px solid #666666;
+	border-radius: 20px;
+}
+
+.AsteroidItemBlockContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.AsteroidBlockData {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	align-items: flex-end;
+	/*margin-bottom: 5px;*/
+	
+}
+
+.AsteroidItemContainer {
+display: flex;
+}
+.itemPic {
+	width: 93px;
+	height: 95px;
+	left: 127px;
+	top: 16px;
+	border-radius: 16px;
+	margin-right: 11px;
+}
+.itemContent > span {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 2.5rem;
+}
+.itemContent > span:hover {
+	color: #182ed6;
+}
+
+.itemContentTitle {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	text-decoration-line: underline;
+}
+.itemContentTitle:hover {
+	text-decoration-line: none;
+	background-color: #b3bbfa;
+}
+
+.itemContentDiameter,
+.itemContentDist,
+.itemContentDangerous {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.itemContentDiameter {
+	display: flex;
+}
+
+
+.itemContentDiameter span {
+	font-size: 1.6rem;
+}
+
+
+.itemContentBtn {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	
+	
+}
+.itemContentBtn button {
+	height: 24px;
+	width: 110px;
+	background: #186DD6;
+	border-radius: 24px;
+	padding: 2px 11px;
+	
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	cursor: pointer;
+	transition: background ease-in-out 300ms;
+}
+.itemContentBtn button:hover {
+	background: #2b3185;
+}
+.itemContentBtn button:active {
+	background: #186DD6;
+}

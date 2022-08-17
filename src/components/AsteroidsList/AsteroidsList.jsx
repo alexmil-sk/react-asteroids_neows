@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './AsteroidsList.module.css';
 import AsteroidItem from "../AsteroidItem/AsteroidItem.jsx";
 
@@ -16,14 +16,6 @@ function AsteroidsList({isDistKm, sendDestroyOrder, testDb}) {
             </div>
           ))
         }
-        
-        {/*{*/}
-        {/*  asteroids.map(asteroid => (*/}
-        {/*    <Link key={asteroid.id} to={`/asteroids/${asteroid.id}`}>*/}
-        {/*      <AsteroidItem/>*/}
-        {/*    </Link>*/}
-        {/*  ))*/}
-        {/*}*/}
       </div>
     </div>
   );

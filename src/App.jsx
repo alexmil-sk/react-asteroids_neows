@@ -27,6 +27,7 @@ function App() {
   //  axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
   //    .then(res => setTestDb(res.data['near_earth_objects']))
   //  setArrayOrders([]);
+  //
   //}
   
   //======== </ UPLOAD FROM NASA > =======================================
@@ -37,7 +38,6 @@ function App() {
   
     setArrayOrders([]);
   }
-  
   
   //======= < PAGINATION > ==================================================
   
@@ -56,9 +56,9 @@ function App() {
     };
   }, []);
   
-  useEffect(() => {
-    getAsteroidsArray();
-  }, [fetching]);
+  //useEffect(() => {
+  //  getAsteroidsArray();
+  //}, [fetching]);
   
   
   //======= </ PAGINATION > ==================================================

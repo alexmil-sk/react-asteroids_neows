@@ -22,11 +22,11 @@ function AsteroidInfo({asteroid}) {
   
   
    function getCloseApproachData() {
-     setApproachDates(close_approach_data.map(item => item.close_approach_date_full));
-     setApproachVelocity(close_approach_data.map(item => +item.relative_velocity.kilometers_per_hour));
-     setOrbitingBody(close_approach_data.map(item => item.orbiting_body));
-     setMinDistance(close_approach_data.map(item => item.miss_distance));
-     setDiameterMeter(estimated_diameter.meters);
+     setApproachDates(close_approach_data.map(item => item['close_approach_date_full']));
+     setApproachVelocity(close_approach_data.map(item => +item['relative_velocity']['kilometers_per_hour']));
+     setOrbitingBody(close_approach_data.map(item => item['orbiting_body']));
+     setMinDistance(close_approach_data.map(item => item['miss_distance']));
+     setDiameterMeter(estimated_diameter['meters']);
    }
    
    

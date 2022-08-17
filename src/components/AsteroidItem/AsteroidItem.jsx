@@ -9,10 +9,13 @@ import {IoInformationCircleSharp} from "react-icons/io5";
 function AsteroidItem({asteroid, isDistKm, sendDestroyOrder}) {
   
   const navigate = useNavigate();
+  const {close_approach_data} = asteroid;
   
   
   const [closeApproach, setCloseApproach] = useState([]);
   const [isHazardous, setIsHazardous] = useState(false);
+  const [approachDates, setApproachDates] = useState([]);
+  
   
   const diameterMax = asteroid['estimated_diameter'].meters['estimated_diameter_max'];
   const diameterMin = asteroid['estimated_diameter'].meters['estimated_diameter_min'];
@@ -35,6 +38,7 @@ function AsteroidItem({asteroid, isDistKm, sendDestroyOrder}) {
   useEffect(() => {
     getApproachDist();
     potentialHazardHandler();
+    getShortCloseApproachData();
   }, []);
   
   function getDistKm() {
@@ -58,12 +62,17 @@ function AsteroidItem({asteroid, isDistKm, sendDestroyOrder}) {
     navigate(`/asteroids/${asteroid.id}`);
   }
   
+  function getShortCloseApproachData() {
+    let arr = close_approach_data.filter(item => item.epoch_date_close_approach > Date.now());
+    return setApproachDates((arr[0].close_approach_date_full).slice(0, 12))
+  }
+  
   
   return (
     <div className={classes.AsteroidItem}>
       <div className={classes.AsteroidItemBlock}>
         <div className={classes.AsteroidItemBlockContainer}>
-          <p className={classes.AsteroidBlockData}>12 september 2021</p>
+          <p className={classes.AsteroidBlockData}>{approachDates}</p>
           <div className={classes.AsteroidItemContainer}>
             <div className={classes.itemPic}>
               {

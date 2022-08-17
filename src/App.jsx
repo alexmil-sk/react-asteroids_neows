@@ -18,6 +18,8 @@ function App() {
   const [testDb, setTestDb] = useLocalStorage([], 'testDb');
   const [isChecked, setIsChecked] = useState(false);
   
+  const [currentPage, setCurrentPage] = useState(1);
+  const [fetching, setFetching] = useState(false);
   
   //======== < UPLOAD FROM NASA > =======================================
   
@@ -27,20 +29,44 @@ function App() {
   //  setArrayOrders([]);
   //}
   
-  //======== < UPLOAD FROM NASA > =======================================
-  
+  //======== </ UPLOAD FROM NASA > =======================================
   
   function getAsteroidsArray() {
-    axios.get('http://127.0.0.1:5173/src/db/db.json')
-      .then(res => setTestDb(res.data['near_earth_objects']))
+      axios.get('http://127.0.0.1:5173/src/db/db.json')
+        .then(res => setTestDb(res.data['near_earth_objects']))
+  
     setArrayOrders([]);
   }
+  
+  
+  //======= < PAGINATION > ==================================================
+  
+  
+  const loadScrollHandler = (e) => {
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 183) {
+      setFetching(true);
+    }
+  }
+  
+  useEffect(() => {
+    document.addEventListener('scroll', loadScrollHandler);
+    
+    return function () {
+      document.removeEventListener('scroll', loadScrollHandler);
+    };
+  }, []);
+  
+  useEffect(() => {
+    getAsteroidsArray();
+  }, [fetching]);
+  
+  
+  //======= </ PAGINATION > ==================================================
   
   
   function loginHandler() {
     setIsLogin(true);
   }
-  
   
   function sendDestroyOrder(data) {
     removeFromTestDb(data.id);

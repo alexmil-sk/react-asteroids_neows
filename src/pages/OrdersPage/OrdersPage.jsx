@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './OrdersPage.module.css';
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 
 function OrdersPage({arrayOrders, removeFromOrder}) {
   
@@ -28,7 +30,7 @@ function OrdersPage({arrayOrders, removeFromOrder}) {
                   </strong></p>
                   <button
                     onClick={() => removeFromOrder(item.id)}
-                  >X</button>
+                  ><RiDeleteBin6Line /></button>
                 </div>
               )))
                 : <></>

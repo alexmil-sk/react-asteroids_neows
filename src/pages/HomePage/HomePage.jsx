@@ -1,40 +1,24 @@
 import React, {useEffect, useRef, useState} from 'react';
 import classes from './HomePage.module.css';
 import AsteroidsList from "../../components/AsteroidsList/AsteroidsList.jsx";
+import { GrUpdate } from "react-icons/gr";
 
 
-function HomePage({sendDestroyOrder}) {
+function HomePage({sendDestroyOrder, getAsteroidsArray, toggleDangerAsteroidHandler, testDb, isChecked}) {
   
   const [isDistKm, setIsDistKm] = useState(true);
-  const [testDb, setTestDb] = useState([]);
   
   
   const refInputKm = useRef();
   const refInputLunar = useRef();
   
   
-  // const [asteroids, setAsteroids] = useState([]);
-  
-  // useEffect(() => {
-  //function getAsteroidsArray() {
-  //   fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
-  //     .then(res => res.json())
-  //     .then(data => setAsteroids(data['near_earth_objects']))
-  //}
-  // }, []);
-  
   useEffect(() => {
     refInputKm.current.hidden = true;
     refInputLunar.current.hidden = true;
-    getAsteroidsArray();
   }, []);
   
-  function getAsteroidsArray() {
-    fetch('http://127.0.0.1:5173/src/db/db.json')
-      .then(res => res.json())
-      .then(data => setTestDb(data['near_earth_objects']))
-  }
-  
+
   function distTypeHandler(e) {
     if (e.target.value === 'lunarOrb') {
       setIsDistKm(false);
@@ -43,15 +27,6 @@ function HomePage({sendDestroyOrder}) {
     }
   }
   
-  function toggleDangerAsteroidHandler(e) {
-    
-    if (e.target.checked) {
-      const newTestDb = [...testDb];
-      setTestDb(newTestDb.filter(item => item.is_potentially_hazardous_asteroid === true));
-    } else if (!e.target.checked) {
-      getAsteroidsArray();
-    }
-  }
   
   return (
     <div className={classes.HomePage}>
@@ -83,10 +58,19 @@ function HomePage({sendDestroyOrder}) {
                 />in lunar orbits
               </label>
             </div>
+            <div className={isChecked ? classes.updateBtnDisable : classes.updateBtn}>
+              <span
+                onClick={getAsteroidsArray}
+              >
+                <GrUpdate />
+                &nbsp;Update DB
+              </span>
+            </div>
             <div>
               <label className={classes.dangerous}>
                 <input
                   type="checkbox"
+                  checked={isChecked}
                   onChange={toggleDangerAsteroidHandler}/>
                 <span>Show only dangerous</span>
               </label>

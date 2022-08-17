@@ -59,9 +59,53 @@
 	margin-left: 5px;
 }
 
-.dangerous input {
-
+.updateBtn {
+	width: 150px;
+	height: 30px;
+	border-radius: 15px;
+	cursor: pointer;
+	
 }
+.updateBtn span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+	border: 1px solid #000;
+	font-size: 1rem;
+	background: #ccc;
+	cursor: pointer;
+}
+
+.updateBtn span:hover {
+	background: gray;
+}
+
+.updateBtn span:active {
+	background: #ccc;
+}
+
+.updateBtnDisable {
+	width: 150px;
+	height: 30px;
+	border-radius: 15px;
+	cursor: not-allowed;
+	opacity: .5;
+}
+.updateBtnDisable span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+	border: 1px solid #000;
+	font-size: 1rem;
+	background: #ccc;
+}
+
 
 .asteroidsList {
 	min-height: 400px;

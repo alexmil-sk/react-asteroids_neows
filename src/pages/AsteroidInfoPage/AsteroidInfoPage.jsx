@@ -32,8 +32,6 @@ function AsteroidInfoPage({sendDestroyOrder}) {
   }
   
   
-  //console.log(Date.now().toLocalString());
-  
   return (
     <div className={classes.AsteroidInfoPage}>
       <button>

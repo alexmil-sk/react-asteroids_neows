@@ -5,8 +5,6 @@ import AsteroidItem from "../AsteroidItem/AsteroidItem.jsx";
 
 function AsteroidsList({isDistKm, sendDestroyOrder, testDb}) {
   
-  
-  
   return (
     <div className={classes.AsteroidsList}>
       <div className={classes.AsteroidsListContainer}>

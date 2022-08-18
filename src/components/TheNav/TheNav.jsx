@@ -16,6 +16,9 @@ function TheNav({arrayOrders}) {
             to="/"
           >Entry scene</CustomLink>
           <CustomLink
+            to="/photos"
+          >Photos</CustomLink>
+          <CustomLink
             to="/asteroids"
             className={setActive}
           >Asteroids</CustomLink>

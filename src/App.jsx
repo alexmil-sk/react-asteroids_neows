@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import VideoLayout from "./layouts/VideoLayout/VideoLayout.jsx";
 import AppLayout from "./layouts/AppLayout/AppLayout.jsx";
 import {Route, Routes} from "react-router-dom";
@@ -7,6 +7,7 @@ import AsteroidInfoPage from "./pages/AsteroidInfoPage/AsteroidInfoPage.jsx";
 import OrdersPage from "./pages/OrdersPage/OrdersPage.jsx";
 import NotfoundPage from "./pages/NotfoundPage/NotfoundPage.jsx";
 import EntryPage from "./pages/EntryPage/EntryPage.jsx";
+import PhotosPage from "./pages/PhotosPage/PhotosPage.jsx";
 import useLocalStorage from './hooks/useLocalStorage.jsx';
 import axios from 'axios';
 
@@ -18,50 +19,25 @@ function App() {
   const [testDb, setTestDb] = useLocalStorage([], 'testDb');
   const [isChecked, setIsChecked] = useState(false);
   
-  const [currentPage, setCurrentPage] = useState(1);
-  const [fetching, setFetching] = useState(false);
+  
   
   //======== < UPLOAD FROM NASA > =======================================
   
-  //function getAsteroidsArray() {
-  //  axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
-  //    .then(res => setTestDb(res.data['near_earth_objects']))
-  //  setArrayOrders([]);
-  //
-  //}
-  
-  //======== </ UPLOAD FROM NASA > =======================================
-  
   function getAsteroidsArray() {
-      axios.get('http://127.0.0.1:5173/src/db/db.json')
-        .then(res => setTestDb(res.data['near_earth_objects']))
-  
+    axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=yq6e5IV45VYcAzM8DgttuZhDir0TJu5f5O9GzE6z')
+      .then(res => setTestDb(res.data['near_earth_objects']))
+    
     setArrayOrders([]);
   }
   
-  //======= < PAGINATION > ==================================================
+  //======== </ UPLOAD FROM NASA > =======================================
   
-  
-  const loadScrollHandler = (e) => {
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 183) {
-      setFetching(true);
-    }
-  }
-  
-  useEffect(() => {
-    document.addEventListener('scroll', loadScrollHandler);
-    
-    return function () {
-      document.removeEventListener('scroll', loadScrollHandler);
-    };
-  }, []);
-  
-  //useEffect(() => {
-  //  getAsteroidsArray();
-  //}, [fetching]);
-  
-  
-  //======= </ PAGINATION > ==================================================
+  //function getAsteroidsArray() {
+  //    axios.get('http://127.0.0.1:5173/src/db/db.json')
+  //      .then(res => setTestDb(res.data['near_earth_objects']))
+  //
+  //  setArrayOrders([]);
+  //}
   
   
   function loginHandler() {
@@ -93,12 +69,16 @@ function App() {
     setIsChecked(!isChecked)
     if (e.target.checked) {
       const newTestDb = [...testDb];
-      setTestDb(newTestDb.filter(item => item.is_potentially_hazardous_asteroid === true));
+      setTestDb(newTestDb.filter(item => item['is_potentially_hazardous_asteroid'] === true));
     } else if (!e.target.checked) {
       getAsteroidsArray();
     } else if (arrayOrders.length) {
       setTestDb(useLocalStorage(testDb, 'arrayOrders'));
     }
+  }
+  
+  function showMessage() {
+    setArrayOrders([]);
   }
   
   return (
@@ -108,6 +88,7 @@ function App() {
           isLogin ? <AppLayout arrayOrders={arrayOrders}/> : <VideoLayout loginHandler={loginHandler}/>
         }>
           <Route index element={<EntryPage/>}/>
+          <Route path="photos" element={<PhotosPage/>}/>
           <Route path="asteroids" element={
             <HomePage
               testDb={testDb}
@@ -116,7 +97,7 @@ function App() {
               sendDestroyOrder={sendDestroyOrder}
               toggleDangerAsteroidHandler={toggleDangerAsteroidHandler}/>}/>
           <Route path="asteroids/:id" element={<AsteroidInfoPage sendDestroyOrder={sendDestroyOrder}/>}/>
-          <Route path="orders" element={<OrdersPage arrayOrders={arrayOrders} removeFromOrder={removeFromOrder}/>}/>
+          <Route path="orders" element={<OrdersPage showMessage={showMessage} arrayOrders={arrayOrders} removeFromOrder={removeFromOrder}/>}/>
           <Route path="*" element={<NotfoundPage/>}/>
         </Route>
       </Routes>

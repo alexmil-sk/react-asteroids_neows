@@ -32,13 +32,6 @@ function App() {
   
   //======== </ UPLOAD FROM NASA > =======================================
   
-  //function getAsteroidsArray() {
-  //    axios.get('http://127.0.0.1:5173/src/db/db.json')
-  //      .then(res => setTestDb(res.data['near_earth_objects']))
-  //
-  //  setArrayOrders([]);
-  //}
-  
   
   function loginHandler() {
     setIsLogin(true);
@@ -96,7 +89,7 @@ function App() {
               getAsteroidsArray={getAsteroidsArray}
               sendDestroyOrder={sendDestroyOrder}
               toggleDangerAsteroidHandler={toggleDangerAsteroidHandler}/>}/>
-          <Route path="asteroids/:id" element={<AsteroidInfoPage sendDestroyOrder={sendDestroyOrder}/>}/>
+          <Route path="asteroids/:id" element={<AsteroidInfoPage testDb={testDb} sendDestroyOrder={sendDestroyOrder}/>}/>
           <Route path="orders" element={<OrdersPage showMessage={showMessage} arrayOrders={arrayOrders} removeFromOrder={removeFromOrder}/>}/>
           <Route path="*" element={<NotfoundPage/>}/>
         </Route>

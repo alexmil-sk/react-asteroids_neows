@@ -1,7 +1,7 @@
 .OrdersPage {
 	min-height: 400px;
 	max-width: 600px;
-	text-align: center;
+	/*text-align: center;*/
 	padding: 20px;
 	margin: 0 auto;
 }
@@ -28,10 +28,11 @@
 
 .ArrayOrdersItem {
 	display: grid;
-	grid-template: repeat(3, auto) / repeat(auto-fit, 3, minmax(50px, 200px));
+	grid-template-columns: 45% 45% 10%;
+	grid-template-rows: repeat(3, auto);
 	justify-items: start;
 	width: auto;
-	
+	row-gap: 5px;
 	border: 1px solid red;
 	padding: 15px;
 	margin: 15px 0;

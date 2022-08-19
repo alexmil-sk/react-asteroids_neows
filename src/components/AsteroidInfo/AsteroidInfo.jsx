@@ -45,12 +45,12 @@ function AsteroidInfo({asteroid}) {
         <h4>{id}</h4>
         <p>Estimated Diameter</p>
         <p>min</p>
-        <h4>{Number((+diameterMeter.estimated_diameter_min).toFixed()).toLocaleString('ru-RU')}
+        <h4>{Number((+diameterMeter['estimated_diameter_min']).toFixed()).toLocaleString('ru-RU')}
           &nbsp;m
         </h4>
         <p>max</p>
         <h4>{
-          Number((+diameterMeter.estimated_diameter_max).toFixed()).toLocaleString('ru-RU')
+          Number((+diameterMeter['estimated_diameter_max']).toFixed()).toLocaleString('ru-RU')
         }
           &nbsp;m
         </h4>
@@ -90,7 +90,7 @@ function AsteroidInfo({asteroid}) {
             minDistance.map(dist =>
             <li className={classes.listChild} key={dist.kilometers}>
               {
-                Number((+dist.kilometers).toFixed()).toLocaleString('ru-RU')
+                Number((+dist['kilometers']).toFixed()).toLocaleString('ru-RU')
               }
             </li>)
           }
@@ -100,7 +100,7 @@ function AsteroidInfo({asteroid}) {
             minDistance.map(dist =>
               <li className={classes.listChild} key={dist.lunar}>
                 {
-                  Number((+dist.lunar).toFixed(2)).toLocaleString('ru-RU')
+                  Number((+dist['lunar']).toFixed(2)).toLocaleString('ru-RU')
                 }
               </li>)
           }
